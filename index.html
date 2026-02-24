@@ -2,8 +2,15 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tasavvuf Notları - Tam Metin</title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" type="image/png" href="ikon.png">
+    <link rel="apple-touch-icon" href="ikon.png">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;600&display=swap');
 
@@ -15,6 +22,7 @@
             --fosfor-sari: rgba(255, 215, 0, 0.3);
             --fosfor-mavi: rgba(0, 176, 255, 0.25);
             --border-color: #262626;
+            --drawer-width: 260px;
         }
 
         * { box-sizing: border-box; }
@@ -23,21 +31,76 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 20px 15px;
+            padding: 0 15px 20px 15px;
             line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .header {
+        /* --- MENU STYLES --- */
+        header { 
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(13, 13, 13, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            padding: 15px 0; border-bottom: 1px solid var(--border-color); margin-bottom: 25px;
+            width: 100vw; display: flex; align-items: center; justify-content: center;
+        }
+
+        .menu-btn {
+            position: absolute; left: 15px; z-index: 1001;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 6px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+        
+        .side-drawer {
+            position: fixed; top: 0; left: calc(-1 * var(--drawer-width));
+            width: var(--drawer-width); height: 100%;
+            background: #121212; border-right: 1px solid var(--border-color);
+            z-index: 1002; transition: 0.3s ease-in-out;
+            padding: 60px 20px; box-sizing: border-box;
+        }
+        
+        .side-drawer.open { left: 0; }
+        
+        .drawer-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); z-index: 1001;
+            display: none; backdrop-filter: blur(4px);
+        }
+        
+        .drawer-overlay.show { display: block; }
+        
+        .menu-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 15px; border-radius: 10px;
+            color: #fff; text-decoration: none;
+            font-size: 0.85rem; margin-bottom: 10px;
+            transition: background 0.2s; border: 1px solid transparent;
+            font-weight: 500;
+        }
+        
+        .menu-item:hover { background: #1a1a1a; border-color: var(--border-color); }
+        .menu-item svg { width: 20px; height: 20px; stroke: #fff; fill: none; }
+
+        .active-link-special {
+            background: linear-gradient(45deg, #1a1a1a, #2c1e4a);
+            border: 1px solid #4b307d !important;
+        }
+
+        /* --- CONTENT STYLES --- */
+        .container { width: 100%; max-width: 500px; }
+
+        .header-title {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 30px;
         }
-        .header svg { width: 24px; height: 24px; fill: #888; flex-shrink: 0; }
-        .header h1 {
+        .header-title svg { width: 22px; height: 22px; fill: #888; flex-shrink: 0; }
+        .header-title h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: #fff;
             letter-spacing: 2px;
             margin: 0;
@@ -84,129 +147,174 @@
 </head>
 <body>
 
-<div class="header">
-    <svg viewBox="0 0 24 24"><path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/></svg>
-    <h1>Tasavvuf Metinleri</h1>
+<div class="drawer-overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<div class="side-drawer" id="drawer">
+    <a href="https://bilginsahiner.github.io/Ders-Programi/" class="menu-item">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        Ders Programı
+    </a>
+    <a href="https://bilginsahiner.github.io/Ramazan-Programi/" class="menu-item">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+        Ramazan Programı
+    </a>
+    <a href="https://bilginsahiner.github.io/Vize-Takvimi/" class="menu-item">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        Vize Takvimi
+    </a>
+    <a href="https://bilginsahiner.github.io/Final-Takvimi/" class="menu-item">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        Final Takvimi
+    </a>
+    <a href="#" class="menu-item active-link-special" onclick="toggleMenu()">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        Tasavvuf Metinleri
+    </a>
 </div>
 
-<div class="card">
-    <h2>Hz. Ali</h2>
-    <div class="info-group">
-        <span class="label">Eser</span>
-        <span class="content">
-            <span class="f-blue">Nehcul-Belağat</span>, 
-            <span class="f-blue">Divan</span> (nispet olunmuştur).
-        </span>
+<header>
+    <div class="menu-btn" onclick="toggleMenu()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
     </div>
-    
-    <div class="siir-box">
-        <div class="siir-satir">
-            <span class="arapca">دَوَاؤُكَ فِيكَ وَمَا تَشْعُرُ</span>
-            <span class="latin">Devâuke fîke vemâ teş’uru</span>
-            <span class="meal">(<span class="f-yellow">Devan sendedir</span> ama fark etmiyorsun)</span>
+    <div class="header-title">
+        <svg viewBox="0 0 24 24"><path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/></svg>
+        <h1>Tasavvuf Metinleri</h1>
+    </div>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Hz. Ali</h2>
+        <div class="info-group">
+            <span class="label">Eser</span>
+            <span class="content">
+                <span class="f-blue">Nehcul-Belağat</span>, 
+                <span class="f-blue">Divan</span> (nispet olunmuştur).
+            </span>
         </div>
-        <div class="siir-satir">
-            <span class="arapca">وَدَاؤُكَ مِنْكَ وَمَا تُبْصِرُ</span>
-            <span class="latin">Ve dâuke minke vemâ tubsiru</span>
-            <span class="meal">(<span class="f-red">Hastalığın sendendir</span> ama görmüyorsun)</span>
+        
+        <div class="siir-box">
+            <div class="siir-satir">
+                <span class="arapca">دَوَاؤُكَ فِيكَ وَمَا تَشْعُرُ</span>
+                <span class="latin">Devâuke fîke vemâ teş’uru</span>
+                <span class="meal">(<span class="f-yellow">Devan sendedir</span> ama fark etmiyorsun)</span>
+            </div>
+            <div class="siir-satir">
+                <span class="arapca">وَدَاؤُكَ مِنْكَ وَمَا تُبْصِرُ</span>
+                <span class="latin">Ve dâuke minke vemâ tubsiru</span>
+                <span class="meal">(<span class="f-red">Hastalığın sendendir</span> ama görmüyorsun)</span>
+            </div>
+            <div class="siir-satir">
+                <span class="arapca">وَتَحْسَبُ أَنَّكَ جِرْمٌ صَغِيرٌ</span>
+                <span class="latin">Ve tahsebu enneke cirmun sağîrun</span>
+                <span class="meal">(Sen kendini küçük bir cisim sanıyorsun)</span>
+            </div>
+            <div class="siir-satir">
+                <span class="arapca">وَفِيكَ انْطَوَى الْعَالَمُ الْأَكْبَرُ</span>
+                <span class="latin">Ve fîke-ntve’l-âlemu’l-ekberu</span>
+                <span class="meal">(Oysa <span class="f-yellow">büyük alem sende gizlidir</span>/dürülmüştür)</span>
+            </div>
+            <div class="siir-satir">
+                <span class="arapca">وَأَنْتَ الْكِتَابُ الْمُبِينُ الَّذِي</span>
+                <span class="latin">Ve entel-kitâbu’l-mubînu-llezî</span>
+                <span class="meal">(Sen o <span class="f-blue">apaçık kitapsın</span> ki,)</span>
+            </div>
+            <div class="siir-satir">
+                <span class="arapca">بِأَحْرُفِهِ يَظْهَرُ الْمُضْمَرُ</span>
+                <span class="latin">Bi-ahrufihî yazheru’l-mudmeru</span>
+                <span class="meal">(Onun harfleriyle gizli olanlar açığa çıkar.)</span>
+            </div>
         </div>
-        <div class="siir-satir">
-            <span class="arapca">وَتَحْسَبُ أَنَّكَ جِرْمٌ صَغِيرٌ</span>
-            <span class="latin">Ve tahsebu enneke cirmun sağîrun</span>
-            <span class="meal">(Sen kendini küçük bir cisim sanıyorsun)</span>
+    </div>
+
+    <div class="card">
+        <h2>Ibnul-Farıd (Ömer)</h2>
+        <div class="info-group">
+            <span class="label">Soy</span>
+            <span class="content">Babası: Ali bin mürşid</span>
         </div>
-        <div class="siir-satir">
-            <span class="arapca">وَفِيكَ انْطَوَى الْعَالَمُ الْأَكْبَرُ</span>
-            <span class="latin">Ve fîke-ntve’l-âlemu’l-ekberu</span>
-            <span class="meal">(Oysa <span class="f-yellow">büyük alem sende gizlidir</span>/dürülmüştür)</span>
+        <div class="info-group">
+            <span class="label">Mürşid</span>
+            <span class="content"><span class="f-yellow">Şeyh bakkal (Melami Yolundan)</span></span>
         </div>
-        <div class="siir-satir">
-            <span class="arapca">وَأَنْتَ الْكِتَابُ الْمُبِينُ الَّذِي</span>
-            <span class="latin">Ve entel-kitâbu’l-mubînu-llezî</span>
-            <span class="meal">(Sen o <span class="f-blue">apaçık kitapsın</span> ki,)</span>
+        <div class="info-group">
+            <span class="label">Hayatı</span>
+            <span class="content">Kahire'de doğdu, <span class="f-red">1235'te vefat etti.</span></span>
         </div>
-        <div class="siir-satir">
-            <span class="arapca">بِأَحْرُفِهِ يَظْهَرُ الْمُضْمَرُ</span>
-            <span class="latin">Bi-ahrufihî yazheru’l-mudmeru</span>
-            <span class="meal">(Onun harfleriyle gizli olanlar açığa çıkar.)</span>
+        <div class="info-group">
+            <span class="label">Eserler</span>
+            <span class="content">Divan'ı vardır. <span class="f-blue">Kaside-i Taiyye</span> / <span class="f-blue">Kaside-i Mimiyye</span></span>
+        </div>
+        <div class="info-group">
+            <span class="label">Meşhur</span>
+            <span class="content"><span class="f-red">Kaside-i Yaiyye'si</span> meşhurdur.</span>
+        </div>
+        <div class="info-group">
+            <span class="label">Not</span>
+            <span class="content"><span class="f-blue">Kaside-i Mimiyye (Kaside-i Hamriyye)</span> olarak da bilinir, 41 beyittir.</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Mevlana</h2>
+        <div class="info-group">
+            <span class="label">Hayatı</span>
+            <span class="content">1207'de Belh'te doğdu, <span class="f-red">1273'te vefat etti.</span></span>
+        </div>
+        <div class="info-group">
+            <span class="label">İsim</span>
+            <span class="content">Asıl adı: <span class="f-yellow">Muhammed Celaleddin</span> (Mevlana: "Efendimiz" anlamında sevenler tarafından söylenmiştir)</span>
+        </div>
+        <div class="info-group">
+            <span class="label">Aile</span>
+            <span class="content">Babası: Sultan-ül Ulema Bahauttin Veled, Annesi: Mümine Hatun</span>
+        </div>
+        <div class="info-group">
+            <span class="label">Mürşidler</span>
+            <span class="content">Babası, Seyyid Burhanettin, Muhakkik Tirmizi, <span class="f-yellow">Şems-i Tebrizi</span></span>
+        </div>
+        <div class="info-group">
+            <span class="label">Halifeler</span>
+            <span class="content">Selahaddin Zerkub, Husameddin Çelebi, Sultan Veled</span>
+        </div>
+        <div class="info-group">
+            <span class="label">Tarikat & Pir</span>
+            <span class="content">
+                <span class="f-blue">Kubreviyye (Mensup olduğu)</span>. 
+                Mevlevilik yolunun piri <span class="f-yellow">Mevlana</span>'dır.
+            </span>
+        </div>
+        <div class="info-group">
+            <span class="label">Mevlevilik</span>
+            <span class="content">
+                Mevlevilik yolu, oğlu <span class="f-yellow">Sultan Veled tarafından tesis</span> olunmuştur.
+            </span>
+        </div>
+        <div class="info-group">
+            <span class="label">Eserler</span>
+            <span class="content">
+                <span class="f-blue">Mesnevi</span>, 
+                <span class="f-blue">Fihi Mafih</span>, 
+                <span class="f-blue">Divan-ı kebir</span>, 
+                <span class="f-blue">Mecalis-i Seb'a</span>, 
+                <span class="f-blue">Mektubat</span>
+            </span>
         </div>
     </div>
 </div>
 
-<div class="card">
-    <h2>Ibnul-Farıd (Ömer)</h2>
-    <div class="info-group">
-        <span class="label">Soy</span>
-        <span class="content">Babası: Ali bin mürşid</span>
-    </div>
-    <div class="info-group">
-        <span class="label">Mürşid</span>
-        <span class="content"><span class="f-yellow">Şeyh bakkal (Melami Yolundan)</span></span>
-    </div>
-    <div class="info-group">
-        <span class="label">Hayatı</span>
-        <span class="content">Kahire'de doğdu, <span class="f-red">1235'te vefat etti.</span></span>
-    </div>
-    <div class="info-group">
-        <span class="label">Eserler</span>
-        <span class="content">Divan'ı vardır. <span class="f-blue">Kaside-i Taiyye</span> / <span class="f-blue">Kaside-i Mimiyye</span></span>
-    </div>
-    <div class="info-group">
-        <span class="label">Meşhur</span>
-        <span class="content"><span class="f-red">Kaside-i Yaiyye'si</span> meşhurdur.</span>
-    </div>
-    <div class="info-group">
-        <span class="label">Not</span>
-        <span class="content"><span class="f-blue">Kaside-i Mimiyye (Kaside-i Hamriyye)</span> olarak da bilinir, 41 beyittir.</span>
-    </div>
-</div>
-
-<div class="card">
-    <h2>Mevlana</h2>
-    <div class="info-group">
-        <span class="label">Hayatı</span>
-        <span class="content">1207'de Belh'te doğdu, <span class="f-red">1273'te vefat etti.</span></span>
-    </div>
-    <div class="info-group">
-        <span class="label">İsim</span>
-        <span class="content">Asıl adı: <span class="f-yellow">Muhammed Celaleddin</span> (Mevlana: "Efendimiz" anlamında sevenler tarafından söylenmiştir)</span>
-    </div>
-    <div class="info-group">
-        <span class="label">Aile</span>
-        <span class="content">Babası: Sultan-ül Ulema Bahauttin Veled, Annesi: Mümine Hatun</span>
-    </div>
-    <div class="info-group">
-        <span class="label">Mürşidler</span>
-        <span class="content">Babası, Seyyid Burhanettin, Muhakkik Tirmizi, <span class="f-yellow">Şems-i Tebrizi</span></span>
-    </div>
-    <div class="info-group">
-        <span class="label">Halifeler</span>
-        <span class="content">Selahaddin Zerkub, Husameddin Çelebi, Sultan Veled</span>
-    </div>
-    <div class="info-group">
-        <span class="label">Tarikat & Pir</span>
-        <span class="content">
-            <span class="f-blue">Kubreviyye (Mensup olduğu)</span>. 
-            Mevlevilik yolunun piri <span class="f-yellow">Mevlana</span>'dır.
-        </span>
-    </div>
-    <div class="info-group">
-        <span class="label">Mevlevilik</span>
-        <span class="content">
-            Mevlevilik yolu, oğlu <span class="f-yellow">Sultan Veled tarafından tesis</span> olunmuştur.
-        </span>
-    </div>
-    <div class="info-group">
-        <span class="label">Eserler</span>
-        <span class="content">
-            <span class="f-blue">Mesnevi</span>, 
-            <span class="f-blue">Fihi Mafih</span>, 
-            <span class="f-blue">Divan-ı kebir</span>, 
-            <span class="f-blue">Mecalis-i Seb'a</span>, 
-            <span class="f-blue">Mektubat</span>
-        </span>
-    </div>
-</div>
+<script>
+    function toggleMenu() {
+        const drawer = document.getElementById('drawer');
+        const overlay = document.getElementById('overlay');
+        drawer.classList.toggle('open');
+        overlay.classList.toggle('show');
+    }
+</script>
 
 </body>
 </html>
