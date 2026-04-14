@@ -672,12 +672,49 @@
         </div>
     </div>
 
+        <style>
+        /* Şiir Kutusu İçin Yeni Düzenleme */
+        .siir-container {
+            background: rgba(128, 128, 128, 0.03);
+            border-radius: 10px;
+            padding: 20px 10px;
+            margin-top: 15px;
+            border: 1px double var(--border-color);
+        }
+
+        .beyit {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        .beyit:last-child { margin-bottom: 0; }
+
+        .misra {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: var(--text-color);
+            display: block;
+        }
+
+        /* Dede Ömer Rûşenî kısmı için özel stil */
+        .siir-tek {
+            font-style: italic;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+
     <div class="card">
-        <div class="siir-box">
-            <div class="siir-satir" style="text-align: center;">
-                <span class="arapca" style="font-size: 1.1rem;">Tasavvuf <span class="f-yellow">yâr olub bâr</span> olmamakdır.</span>
-                <span class="arapca" style="font-size: 1.1rem;">Gül-i gülzâr olub <span class="f-red">hâr</span> olmamakdır.</span>
-                <span class="latin" style="text-align: right; margin-top: 10px; font-weight: 600;">— Dede Ömer Rûşenî</span>
+        <div class="siir-container">
+            <div class="beyit siir-tek">
+                <span class="misra">Tasavvuf <span class="f-yellow">yâr olub bâr</span> olmamakdır.</span>
+                <span class="misra">Gül-i gülzâr olub <span class="f-red">hâr</span> olmamakdır.</span>
+                <span style="font-size: 0.75rem; font-weight: 600; margin-top: 8px; color: var(--accent-color);">— Dede Ömer Rûşenî</span>
             </div>
         </div>
     </div>
@@ -686,9 +723,7 @@
         <h2>Oğlanlar Şeyhi İbrahim Efendi</h2>
         <div class="info-group">
             <span class="label">Hayatı</span>
-            <span class="content">
-                Köstendil Eğridere'de doğdu. <span class="f-red">1655'te İstanbul'da vefat etti.</span>
-            </span>
+            <span class="content">Köstendil Eğridere'de doğdu. <span class="f-red">1655'te İstanbul'da vefat etti.</span></span>
         </div>
         <div class="info-group">
             <span class="label">Mürşidleri</span>
@@ -699,45 +734,37 @@
         </div>
         <div class="info-group">
             <span class="label">Faaliyet</span>
-            <span class="content">
-                İstanbul Aksaray'da <span class="f-blue">Gavsi Tekkesi</span>'nde faaliyet gösterdi.
-            </span>
+            <span class="content">İstanbul Aksaray'da <span class="f-blue">Gavsi Tekkesi</span>'nde faaliyet gösterdi.</span>
         </div>
         <div class="info-group">
             <span class="label">Eserleri</span>
-            <span class="content">
-                Divan, <span class="f-blue">Vahdetname</span>, Müfid u Muhtasar.
-            </span>
+            <span class="content">Divan, <span class="f-blue">Vahdetname</span>, Müfid u Muhtasar.</span>
         </div>
-        <div class="info-group">
-            <span class="label">Yetiştirdiği En Önemli Şahsiyet</span>
+        <div class="info-group" style="margin-bottom: 25px;">
+            <span class="label">Yetiştirdiği Şahsiyet</span>
             <span class="content"><span class="f-red">Sunullah Gaybi</span></span>
         </div>
 
-        <div class="siir-box">
-            <div class="siir-satir">
-                <span class="arapca">Bidayette tasavvuf sûfî <span class="f-yellow">bî-can</span> olmağa derler</span>
-                <span class="arapca">Nihayette gönül tahtında <span class="f-yellow">sultan</span> olmağa derler</span>
+        <div class="siir-container">
+            <div class="beyit">
+                <span class="misra">Bidayette tasavvuf sûfî <span class="f-yellow">bî-can</span> olmağa derler</span>
+                <span class="misra">Nihayette gönül tahtında <span class="f-yellow">sultan</span> olmağa derler</span>
             </div>
-            <div class="siir-satir">
-                <span class="arapca">Tarikatde ibaretdir tasavvuf <span class="f-blue">mahv-ı suretden</span></span>
-                <span class="arapca">Hakikatde saray-ı sırda <span class="f-blue">mihman</span> olmağa derler</span>
+            <div class="beyit">
+                <span class="misra">Tarikatde ibaretdir tasavvuf <span class="f-blue">mahv-ı suretden</span></span>
+                <span class="misra">Hakikatde saray-ı sırda <span class="f-blue">mihman</span> olmağa derler</span>
             </div>
-            <div class="siir-satir">
-                <span class="arapca">Bu ab-u gil libasından tasavvuf <span class="f-red">âr-i</span> olmakdır</span>
-                <span class="arapca">Tasavvuf cism-i sufi <span class="f-red">nur-i Yezdan</span> olmağa derler</span>
+            <div class="beyit">
+                <span class="misra">Bu ab-u gil libasından tasavvuf <span class="f-red">âr-i</span> olmakdır</span>
+                <span class="misra">Tasavvuf cism-i sufi <span class="f-red">nur-i Yezdan</span> olmağa derler</span>
             </div>
-            <div class="siir-satir">
-                <span class="arapca">Tasavvuf <span class="f-yellow">lem'a-i envâr-ı mutlakdan</span> uyarmakdır</span>
-                <span class="arapca">Tasavvuf <span class="f-red">âteş-i aşk</span> ile sûzan olmağa derler.</span>
-            </div>
-            
-            <div class="exam-note">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                <span>Şiirdeki kavramların bidayet/nihayet dengesine dikkat ediniz.</span>
+            <div class="beyit">
+                <span class="misra">Tasavvuf <span class="f-yellow">lem'a-i envâr-ı mutlakdan</span> uyarmakdır</span>
+                <span class="misra">Tasavvuf <span class="f-red">âteş-i aşk</span> ile sûzan olmağa derler.</span>
             </div>
         </div>
     </div>
+
 
 
 
