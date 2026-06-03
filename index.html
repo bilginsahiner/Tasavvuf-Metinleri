@@ -667,10 +667,9 @@
         <div class="info-group">
             <span class="label">Eserleri</span>
             <span class="content">
-                Divan, <span class="f-yellow">Miskinlikname</span>, Neyname, Çobanname, Kalemname.
+                Divan, <span class="f-yellow">Miskinlikname</span>, Neyname, Çobanname, Kelamname.
             </span>
         </div>
-    </div>
 
         <style>
         /* Şiir Kutusu İçin Yeni Düzenleme */
@@ -686,7 +685,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 18px;
+            margin-bottom: 22px;
             text-align: center;
         }
 
@@ -707,14 +706,50 @@
             padding-bottom: 15px;
             margin-bottom: 15px;
         }
-    </style>
 
-    <div class="card">
+        /* Arapça metinleri ortalamak için ekstra stil */
+        .arapca-ortali {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--title-color);
+            margin-bottom: 2px;
+        }
+        </style>
+
         <div class="siir-container">
             <div class="beyit siir-tek">
                 <span class="misra">Tasavvuf <span class="f-yellow">yâr olub bâr</span> olmamakdır.</span>
                 <span class="misra">Gül-i gülzâr olub <span class="f-red">hâr</span> olmamakdır.</span>
-                <span style="font-size: 0.75rem; font-weight: 600; margin-top: 8px; color: var(--accent-color);">— Dede Ömer Rûşenî</span>
+                <span style="font-size: 0.75rem; font-weight: 600; margin-top: 8px; color: var(--label-color);">— Dede Ömer Rûşenî</span>
+            </div>
+            
+            <div class="beyit" style="margin-bottom: 25px;">
+                <span class="arapca arapca-ortali" style="color: #ff4444;">دریان تصوف گوید</span>
+                <span class="misra" style="font-size: 0.85rem; color: var(--label-color);">der beyan-ı tasavvuf güyed</span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">ندر دنمسه تصوف دى تذال</span>
+                <span class="misra">nedir dinsel tasavvuf di <span class="f-yellow">tezellül</span></span>
+                <span class="arapca arapca-ortali">خشوع و مسكنت صبر و تحمل</span>
+                <span class="misra">huşülu meskenet sabru <span class="f-yellow">tahamul</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">تصوف كاي كچمكدر اوزرندن</span>
+                <span class="misra">tasavvuf külli geçmektir <span class="f-blue">özünden</span></span>
+                <span class="arapca arapca-ortali">دخی اینختممكدر ایل سوزندن</span>
+                <span class="misra">dahi incitmemektir il <span class="f-blue">sözünden</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">تصوف حق یولندن چیقمامقندر</span>
+                <span class="misra">tasavvuf hak yolundan <span class="f-red">çıkmamaktır</span></span>
+                <span class="arapca arapca-ortali">تصوف كیمسه كوگكن یقمامقندر</span>
+                <span class="misra">tasavvuf kimse gönlün <span class="f-red">yıkmamaktır</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">تصوف خلقله خلق حسندر</span>
+                <span class="misra">tasavvuf halk ile hulk'ı <span class="f-yellow">hasan'dır</span></span>
+                <span class="arapca arapca-ortali">بو سوز اهلی حسین ایله حسندر</span>
+                <span class="misra">bu söz ehli Hüseyin ile <span class="f-yellow">hasan'dır</span></span>
             </div>
         </div>
     </div>
@@ -747,27 +782,218 @@
 
         <div class="siir-container">
             <div class="beyit">
+                <span class="arapca arapca-ortali">بدايتنده تصوف صوفی بی جان اولمقده دیرلر</span>
                 <span class="misra">Bidayette tasavvuf sûfî <span class="f-yellow">bî-can</span> olmağa derler</span>
+                <span class="arapca arapca-ortali">نهايتنده كوكل تختنده سلطان اولمغه دیرلر</span>
                 <span class="misra">Nihayette gönül tahtında <span class="f-yellow">sultan</span> olmağa derler</span>
             </div>
             <div class="beyit">
+                <span class="arapca arapca-ortali">طريقتده عبارتدر تصوف محو صورتدن</span>
                 <span class="misra">Tarikatde ibaretdir tasavvuf <span class="f-blue">mahv-ı suretden</span></span>
+                <span class="arapca arapca-ortali">حقيقتنده سرای سرده مهمان اولمغه دیرلر</span>
                 <span class="misra">Hakikatde saray-ı sırda <span class="f-blue">mihman</span> olmağa derler</span>
             </div>
             <div class="beyit">
+                <span class="arapca arapca-ortali">بواپ كل لباسندن تصوف عاری اولمقندر</span>
                 <span class="misra">Bu ab-u gil libasından tasavvuf <span class="f-red">âr-i</span> olmakdır</span>
+                <span class="arapca arapca-ortali">تصوف جسم صوفی نور یزدان اولمغه دیرلر</span>
                 <span class="misra">Tasavvuf cism-i sufi <span class="f-red">nur-i Yezdan</span> olmağa derler</span>
             </div>
             <div class="beyit">
+                <span class="arapca arapca-ortali">تصوف لمعه انوار مطلقدن اویارمقدر</span>
                 <span class="misra">Tasavvuf <span class="f-yellow">lem'a-i envâr-ı mutlakdan</span> uyarmakdır</span>
+                <span class="arapca arapca-ortali">تصوف آتش عشقلھ سوزان اولمغه دیرلر</span>
                 <span class="misra">Tasavvuf <span class="f-red">âteş-i aşk</span> ile sûzan olmağa derler.</span>
             </div>
         </div>
     </div>
 
+    <div class="card">
+        <h2>Aziz Mahmud Hüdayi</h2>
+        <div class="info-group">
+            <span class="label">Hayatı</span>
+            <span class="content">1542'de Şereflikoçhisar'da doğdu. İstanbul ve Bursa'da eğitim gördü. Kahire, Bursa ve Edirne'de kadı naipliği yaptı. İlk önce <span class="f-blue">Halvetiyye</span> tarikatında terbiye gördü. Bayramî şeyhi <span class="f-yellow">Muhyiddin Üftade</span>'ye bağlanarak ondan tarikat icazeti aldı. 7 Padişah gördü, onların hürmetine mazhar oldu. Tekkesini Üsküdar'da kurdu. <span class="f-red">1628 vefatı Üsküdar'dadır.</span></span>
+        </div>
+        <div class="info-group">
+            <span class="label">Tarikat</span>
+            <span class="content"><span class="f-red">Celvetiyye</span> tarikatının kurucusudur.</span>
+        </div>
+        <div class="info-group">
+            <span class="label">Eserleri</span>
+            <span class="content">Arapça ve Türkçe 30'a yakın eser yazdı. Divan, <span class="f-blue">Habbetü'l-Mahabbe</span>, Câmiu'l-Fezâil, Hulâsatü'l-Ahbâr, Mîrâciyye.</span>
+        </div>
 
+        <div class="siir-container">
+            <div class="beyit">
+                <span class="arapca arapca-ortali">توحيد ایله اولور هر درده درمان</span>
+                <span class="misra">Tevhid ile olur her derde <span class="f-yellow">derman</span></span>
+                <span class="arapca arapca-ortali">حقه توحید ایله ایرمش ایرنلر</span>
+                <span class="misra">Hatta Tevhid ile Ermiş <span class="f-yellow">Erenler</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">توحيد ایله اولور هر مشكل آسان</span>
+                <span class="misra">Tevhid ile olur her müşkil <span class="f-blue">Asan</span></span>
+                <span class="arapca arapca-ortali">حقه توحید ایله ایرمش ایرنلر</span>
+                <span class="misra">Hakk'a Tevhid ile Ermiş <span class="f-blue">Erenler</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">كوكلدن پاسكى سلمك ديلرسك</span>
+                <span class="misra">gönülden pasını silmek <span class="f-red">dilersen</span></span>
+                <span class="arapca arapca-ortali">بلمدكلركى بلمك ديلرسك</span>
+                <span class="misra">bilmediklerini bilmek <span class="f-red">dilersen</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">اگر حق سنده بولمق ديلرسك</span>
+                <span class="misra">Eğer Hakkı sende bulmak <span class="f-yellow">dilersen</span></span>
+                <span class="arapca arapca-ortali">حقه توحید ایله ایرمش ایرنلر</span>
+                <span class="misra">hakka Tevhid ile Ermiş <span class="f-yellow">Erenler</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">عالمه عبرت كوزیله باقانلر</span>
+                <span class="misra">Aleme ibret gözüyle <span class="f-blue">bakanlar</span></span>
+                <span class="arapca arapca-ortali">چراغن نور مولادن یاقانلر</span>
+                <span class="misra">çerağın nur-ı mevladan <span class="f-blue">yakanlar</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">یردن كوكدن كچوب عرشه چیقانلر</span>
+                <span class="misra">yerden Gökten geçip karşı <span class="f-red">çıkanlar</span></span>
+                <span class="arapca arapca-ortali">حقه توحید له ایرمش ایرنلر</span>
+                <span class="misra">Hakk'a Tevhid ile Ermiş <span class="f-red">Erenler</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">الدانمه كی صقین بو كائناته</span>
+                <span class="misra">Aldanma ki Sakın bu <span class="f-yellow">kainata</span></span>
+                <span class="arapca arapca-ortali">كچ آغ وقرادن بق نور ذاته</span>
+                <span class="misra">geç Ağu karadan bak nur-ı <span class="f-yellow">zata</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">بولمق استرايسك اگر خدایی</span>
+                <span class="misra">bulmak ister isen eğer <span class="f-blue">hüda'yı</span></span>
+                <span class="arapca arapca-ortali">اهل توحیده خدمت ایت هدایی</span>
+                <span class="misra">ehli Tevhide Hizmet et <span class="f-blue">Hüdai</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">يوله چكن اولدر بای وكدایی</span>
+                <span class="misra">yola çeken odur bayu <span class="f-red">gedâyı</span></span>
+                <span class="arapca arapca-ortali">حقه توحید ایله ایرمش ایرن</span>
+                <span class="misra">hakka Tevhid ile Ermiş <span class="f-red">Erenler</span></span>
+            </div>
+        </div>
+    </div>
 
+    <div class="card">
+        <h2>Şeyh Galib</h2>
+        <div class="info-group">
+            <span class="label">Hayatı</span>
+            <span class="content">1757'de İstanbul'da doğdu. Asıl adı Muhammed Esad, mahlası Es'ad Galib'dir. Babası Mevlevi Mustafa Reşit, annesi Amine Hatun. Galata Mevlevihanesi'nde şeyhlik yapmıştır. <span class="f-red">1799'da vefat etmiştir.</span> Kabri adı geçen Mevlevihane haziresindedir.</span>
+        </div>
+        <div class="info-group">
+            <span class="label">Mürşidi</span>
+            <span class="content"><span class="f-yellow">Ali Nutki Dede'dir.</span></span>
+        </div>
+        <div class="info-group">
+            <span class="label">Tarikatı</span>
+            <span class="content"><span class="f-blue">Mevlevilik'tir.</span></span>
+        </div>
+        <div class="info-group">
+            <span class="label">Eserleri</span>
+            <span class="content">Divan, <span class="f-red">Hüsn-ü Aşk</span>, Sohbetü's-Safiyye, Şerh-i Cezire-i Mesnevi.</span>
+        </div>
 
+        <div class="siir-container">
+            <div class="beyit">
+                <span class="arapca arapca-ortali">سلطان رسل شاه مدینه سن افندم</span>
+                <span class="misra">sultan-ı rusül şahı mümeccedsin <span class="f-yellow">efendim</span></span>
+                <span class="arapca arapca-ortali">دیوان الهی ده سرآمدسن افندم</span>
+                <span class="misra">bi çarelere devleti sermayesin <span class="f-yellow">efendim</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">بیچاره لره دولت سرمدسن افندم</span>
+                <span class="misra">Divan-ı ilahiye ser-amelesin <span class="f-blue">efendim</span></span>
+                <span class="arapca arapca-ortali">مشوشلره خاطر موجسن افندم</span>
+                <span class="misra">mensur-ı le amürde müeyydsin <span class="f-blue">efendim</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">سن احمد و محمود و محمدسن افندم</span>
+                <span class="misra">Sen Ahmed-ü Mahmud-u muhammetsin <span class="f-red">efendim</span></span>
+                <span class="arapca arapca-ortali">حق حضرتنده سلطان مربیسن افندم</span>
+                <span class="misra">Haktan bize sultan-ı müeyydsin <span class="f-red">efendim</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">تابش ده اوضاع جهان کرکدر</span>
+                <span class="misra">tersidir ervahı müccerred <span class="f-yellow">ghlindir</span></span>
+                <span class="arapca arapca-ortali">آیینه ادراکه نظر کرکدر</span>
+                <span class="misra">maligah-ı ruhullah melek hak-i <span class="f-yellow">derindir</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Niyâz-i Mısrî</h2>
+        <div class="info-group">
+            <span class="label">Hayatı</span>
+            <span class="content">Asıl adı Mehmet'tir. <span class="f-blue">1618 Malatya'da doğdu.</span> Şeyh Elvan-ı Şirazi'nin Halveti tekkesinde eğitim aldı. Medrese tahsili görmek için Diyarbakır ve Kahire'ye tahsile gitti. Kahire'de Kadiri şeyhinden el aldı. Bursa'da dergah kurdu. Önce Rodos sonra Limni'ye sürgün edildi.</span>
+        </div>
+        <div class="info-group">
+            <span class="label">Mürşidi</span>
+            <span class="content"><span class="f-yellow">Ümmi Sinan'dır</span> (Elmalı Ümmi Sinan'dır).</span>
+        </div>
+        <div class="info-group">
+            <span class="label">Eserleri</span>
+            <span class="content">Arapça ve Türkçe 11 Eseri Vardır: Mevâidü'l-İrfan, Tesbih-i Kaside-i Bürde, Tefsir-i Fâtiha, Divan, Risale-i Haseneyn, Ârifin Şerhi.</span>
+        </div>
+
+        <div class="siir-container">
+            <div class="beyit">
+                <span class="arapca arapca-ortali">ای درده درمان استین</span>
+                <span class="misra">Ey derde derman <span class="f-yellow">istiyorum</span></span>
+                <span class="arapca arapca-ortali">يتمزمى درد درمان سكا</span>
+                <span class="misra">yetmez mi dert Derman <span class="f-yellow">sana</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">ای راحت جان استین</span>
+                <span class="misra">Ey rahatı Can <span class="f-blue">isteyen</span></span>
+                <span class="arapca arapca-ortali">قربان اولاندر جان سكا</span>
+                <span class="misra">kurban olandır can <span class="f-blue">sana</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">يغما ايدر سين وارلغك</span>
+                <span class="misra">yağma gidersin <span class="f-red">varlığın</span></span>
+                <span class="arapca arapca-ortali">كیدر كوكلدن طارلغك</span>
+                <span class="misra">gider gözden <span class="f-red">darlığın</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">محو ایله سن اغيارلغك</span>
+                <span class="misra">mahveyle sen <span class="f-yellow">ağyarlığın</span></span>
+                <span class="arapca arapca-ortali">يار اوليسر مهمان سكا</span>
+                <span class="misra">yar olasın mihman <span class="f-yellow">sana</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">سرمایه بو یولده همن</span>
+                <span class="misra">sermaye bu yolda <span class="f-blue">hemen</span></span>
+                <span class="arapca arapca-ortali">تسليم اولوب بوكا اینان</span>
+                <span class="misra">teslim olup buna <span class="f-blue">inan</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">صدیقله اللهه طپان</span>
+                <span class="misra">Sıddık ile Allah'a <span class="f-red">Dayan</span></span>
+                <span class="arapca arapca-ortali">ايتمزمى كور احسان سكا</span>
+                <span class="misra">yetmez mi gör İhsan <span class="f-red">sana</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">توحده طاپشور اوزيكى</span>
+                <span class="misra">Tevhide tapşur <span class="f-yellow">özünü</span></span>
+                <span class="arapca arapca-ortali">كيمسه یه آچمه رازيكی</span>
+                <span class="misra">kimseye açma <span class="f-yellow">razını</span></span>
+            </div>
+            <div class="beyit">
+                <span class="arapca arapca-ortali">شیخ ایزینه طوت یوزیکی</span>
+                <span class="misra">Şeyh izine tut <span class="f-blue">yüzünü</span></span>
+                <span class="arapca arapca-ortali">شیخك یتر برهان سكا</span>
+                <span class="misra">şeyhin yeter Burhan <span class="f-blue">sana</span></span>
+            </div>
+        </div>
+    </div>
 
     <div class="footer-section">
         <a href="https://www.instagram.com/bilginsahiner01" class="schedule-btn-small" target="_blank">
